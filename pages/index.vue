@@ -37,6 +37,7 @@ export default {
       this.$router.push('/'+value)
     }
   }
+
 }
 </script>
 <style scoped>
