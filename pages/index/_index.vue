@@ -3,11 +3,12 @@
     <div>
       <nav>
         <ul>
-          <li><nuxt-link :to="'/'+$route.params.index">推荐</nuxt-link></li>
-          <li><nuxt-link :to="'/'+$route.params.index+'?sort=newest'">最新</nuxt-link></li>
-          <li><nuxt-link :to="'/'+$route.params.index+time_map[selected]">热榜</nuxt-link></li>
+          <li @click="go($route.params.index,0)" :class="{active:isActive==0}"><a>推荐</a></li>
+          <li @click="go($route.params.index+'?sort=newest',1)" :class="{active:isActive==1}"><a>最新</a></li>
+          <li @click="go($route.params.index+time_map[selected],2)" :class="{active:isActive==2}"><a>热榜</a></li>
+
         </ul>
-        <select v-model="selected">
+        <select v-model="selected" v-show="isHot" @click="updateTime">
           <option value="0">3天内</option>
           <option value="1">7天内</option>
           <option value="2">30天内</option>
@@ -26,8 +27,27 @@
 export default {
   data(){
     return{
-      selected:'1',
+      selected:'0',
       time_map:['?sort=three_days_hottest','?sort=weekly_hottest','?sort=monthly_hottest','?sort=hottest'],
+      isActive:0,
+      isHot:false
+    }
+  },
+  methods:{
+    go(path,index){
+
+      this.isActive=index
+
+      if(this.isActive===2){
+        this.isHot=true
+      }else{
+        this.isHot=false
+      }
+      this.$router.push('/'+path)
+    },
+    updateTime(e){
+      console.log(e.target.value)
+      this.$router.push(this.$route.params.index+this.time_map[this.selected])
     }
   }
 
@@ -35,7 +55,13 @@ export default {
 </script>
 
 <style scoped>
-ul li{
+li{
   display: inline-block;
+}
+.active{
+  color: red;
+}
+li:hover{
+  cursor: pointer;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
   <div>
     <nav>
-      <ul v-for="(value,key) in tab2_categories" :key="value">
-        <li><nuxt-link :to="'/'+value">{{key}}</nuxt-link></li>
+      <ul>
+        <li v-for="(value,key) in tab2_categories" :key="value" @click="go(value)">
+          <a :class="{active:isActive===value}">{{value}}</a>
+        </li>
       </ul>
     </nav>
     <div>
@@ -15,7 +17,6 @@
 export default {
   data(){
     return{
-      // tab2_categories:['综合','后端','前端','Android','IOS','人工智能','开发工具','代码人生','阅读']
       tab2_categories:{
         '综合':'recommend',
         '后端':'backend',
@@ -26,20 +27,30 @@ export default {
         '开发工具':'freebie',
         '代码人生':'career',
         '阅读':'article'
-      }
+      },
+      isActive:'recommend'
+    }
+  },
+  methods:{
+    go(value){
+      this.isActive=value
+      this.$router.push('/'+value)
     }
   }
 }
 </script>
-<style>
+<style scoped>
 *{
   text-decoration: none;
   list-style: none;
 }
-ul{
+li{
   display: inline-block;
 }
-.nuxt-link-exact-active{
-  color: brown;
+.active{
+  color: red;
+}
+a:hover{
+  cursor: pointer;
 }
 </style>

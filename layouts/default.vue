@@ -1,8 +1,10 @@
 <template>
   <div>
     <nav>
-      <ul v-for="c in tab1_categories" :key="c.index">
-        <li><nuxt-link to="/">{{c}}</nuxt-link></li>
+      <ul>
+        <li v-for="(item,index) in tab1_categories" :key="index" @click="go('/',index)">
+          <a :class="{active:isActive===index}">{{item}}</a>
+        </li>
       </ul>
     </nav>
     <div>
@@ -15,7 +17,14 @@
 export default {
   data(){
     return{
-      tab1_categories:['首页','沸点','课程','直播','活动','竞赛','商城','APP','插件']
+      tab1_categories:['首页','沸点','课程','直播','活动','竞赛','商城','APP','插件'],
+      isActive:0
+    }
+  },
+  methods:{
+    go(path,index){
+      this.isActive=index
+      this.$router.push(path)
     }
   }
 }
@@ -26,7 +35,13 @@ export default {
   text-decoration: none;
   list-style: none;
 }
-ul{
+li{
   display: inline-block;
+}
+.active{
+  color: red;
+}
+a:hover{
+  cursor: pointer;
 }
 </style>
