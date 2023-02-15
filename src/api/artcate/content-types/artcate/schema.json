@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artcates",
+  "info": {
+    "singularName": "artcate",
+    "pluralName": "artcates",
+    "displayName": "artcate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "alias": {
+      "type": "string"
+    },
+    "is_delete": {
+      "type": "boolean"
+    }
+  }
+}
