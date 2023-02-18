@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -13,11 +14,16 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' },
+      { src:"https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    'bootstrap/dist/css/bootstrap.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -47,5 +53,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    vendor:['axios','jquery','bootstrap'],
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery',
+        jQuery:'jquery',
+        'window.jQuery':'jquery'
+      })
+    ]
   }
 }

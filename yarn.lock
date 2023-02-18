@@ -2188,6 +2188,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.npmmirror.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
+bootstrap@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmmirror.com/bootstrap/-/bootstrap-3.3.0.tgz#27d83ec81c51b3f86d20cf610ded3724e4b7ace3"
+  integrity sha512-ELzD57D1ss/3H8/HdYg/zYneTU6Zkk4USICly/H8qsvh+KqklKf1KcB39KAHPkQjubodYSFrwrz2FFYxnqYwxg==
+
 boxen@^5.0.1:
   version "5.1.2"
   resolved "https://registry.npmmirror.com/boxen/-/boxen-5.1.2.tgz#788cb686fc83c1f486dfa8a40c68fc2b831d2b50"
@@ -5136,6 +5141,11 @@ jiti@^1.9.2:
   version "1.16.2"
   resolved "https://registry.npmmirror.com/jiti/-/jiti-1.16.2.tgz#75f7a0a8fde4a0e57e576f7d329491d588db89cf"
   integrity sha512-OKBOVWmU3FxDt/UH4zSwiKPuc1nihFZiOD722FuJlngvLz2glX1v2/TJIgoA4+mrpnXxHV6dSAoCvPcYQtoG5A==
+
+jquery@1.11.3:
+  version "1.11.3"
+  resolved "https://registry.npmmirror.com/jquery/-/jquery-1.11.3.tgz#dd8b74278b27102d29df63eae28308a8cfa1b583"
+  integrity sha512-pHM/XLofp0FJc0/0AsRm8q/5ob+a1kno+vfclXGozaMBPv3qD7Xq19loECVcBB4MOLdygnyneQMPTsH5QiVNBQ==
 
 js-sdsl@^4.1.4:
   version "4.3.0"
