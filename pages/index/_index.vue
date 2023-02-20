@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <nav>
-        <ul>
+      <nav >
+        <ul >
           <li @click="go($route.params.index,0)" :class="{active:isActive==0}"><a>推荐</a></li>
           <li @click="go($route.params.index+'?sort=newest',1)" :class="{active:isActive==1}"><a>最新</a></li>
           <li @click="go($route.params.index+time_map[selected],2)" :class="{active:isActive==2}"><a>热榜</a></li>
