@@ -1,0 +1,152 @@
+li {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none !important;
+  }
+  
+  [v-cloak] {
+    display: none;
+  }
+  /* 文章详情页 */
+  .article_title {
+    margin-top: 0px;
+    margin-bottom: 20.04px;
+}
+
+.author_info {
+    display: flex;
+}
+
+.author_info img {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.author_name {
+    display: block;
+}
+
+.article_data {
+    display: block;
+}
+.article_tag {
+    display: flex;
+    padding: 0;
+}
+.article_tag a {
+    padding: 9px 12px;
+    margin-left: 16px;
+    border-radius: 4px;
+}
+.classification {
+    margin-right: 40px;
+}
+.comment-t {
+    margin-bottom: 20.004px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.comment-input {
+    margin-bottom: 40.004px;
+    display: flex;
+}
+.comment-input img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+.comment-hot {
+    margin-bottom: 20.004px;
+    font-size: 18px;
+    font-weight: 600;
+}
+/* 文章详情页侧边栏 */
+.right_side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+}
+.author_value {
+    padding: 20.004px;
+    width: 300px;
+    margin: 0 0 20px;
+    height: 226.99px;
+}
+
+.author_value img {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.author_info_s {
+    display: flex;
+    width: 260px;
+    padding-bottom: 16.992px;
+}
+
+.author_info_nik {
+    margin: 0;
+    margin-left: 1.333rem;
+    padding: 0;
+}
+
+.operate-btn {
+    margin: 0 0 16px;
+}
+
+.stat-items {
+    display: flex;
+    margin: 8.004px 0 0;
+}
+
+.stat-items span {
+    height: 26px;
+    margin-left: 12px;
+}
+
+.wechat {
+    margin-bottom: 20px;
+}
+
+.wechat img {
+    width: 300px;
+    height: 248.71px;
+}
+
+.side_raleted {
+    width: 300px;
+    padding: 20.004px;
+    margin-bottom: 20px;
+}
+
+.raleted_t {
+    /* padding-bottom: 15.996px; */
+    width: 260px;
+}
+
+.raleted_v {
+    min-height: 200px;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.catalog,
+.next_article {
+    width: 300px;
+    padding: 20.004px;
+    margin-bottom: 20px;
+}
+
+.left_side {
+    position: fixed;
+    margin-left: -7rem;
+    top: 140px;
+    z-index: 2;
+}
