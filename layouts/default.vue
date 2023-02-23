@@ -10,15 +10,16 @@
       <nav class="header_nav">
         <ul class="nav_list">
           <li
-            v-for="(item, index) in tab1_categories"
+            v-for="(item,index) in $store.state.tab1_categories"
             :key="index"
             @click="go('/', index)"
           >
-            <a :class="{ active: isActive === index }">{{ item }}</a>
+            <a :class="{ active: isActive === index }">{{ item.attributes.name}}</a>
+            <!--            <div v-show="item.attributes.hasLabel" class="advertise">-->
+            <span class="label label-danger">{{item.attributes.labelName}}</span>
+            <!--            </div>-->
           </li>
-          <li>
-            <a href="" class="advertise"><img src="" alt="" /></a>
-          </li>
+
         </ul>
         <ul class="nav_user">
           <li class="nav_search">
@@ -55,30 +56,30 @@
               <ul class="dropdown-menu">
                 <li>
                   <a href="#"
-                    ><span class="glyphicon glyphicon-pencil"></span>写文章</a
+                  ><span class="glyphicon glyphicon-pencil"></span>写文章</a
                   >
                 </li>
                 <li>
                   <a href="#"
-                    ><span class="glyphicon glyphicon-dashboard"></span
-                    >发沸点</a
+                  ><span class="glyphicon glyphicon-dashboard"></span
+                  >发沸点</a
                   >
                 </li>
                 <li>
                   <a href="#"
-                    ><span class="glyphicon glyphicon-book"></span>写笔记</a
+                  ><span class="glyphicon glyphicon-book"></span>写笔记</a
                   >
                 </li>
                 <li>
                   <a href="#"
-                    ><span class="glyphicon glyphicon-menu-down"></span
-                    >写代码</a
+                  ><span class="glyphicon glyphicon-menu-down"></span
+                  >写代码</a
                   >
                 </li>
                 <li>
                   <a href=""
-                    ><span class="glyphicon glyphicon-download-alt"></span
-                    >草稿箱</a
+                  ><span class="glyphicon glyphicon-download-alt"></span
+                  >草稿箱</a
                   >
                 </li>
               </ul>
@@ -96,9 +97,9 @@
           </li>
           <li>
             <a href=""
-              ><img class="head-picture"
-                src="https://p3-passport.byteimg.com/img/user-avatar/8833cebec90863a00e6600f9626a7b97~100x100.awebp"
-                alt=""
+            ><img class="head-picture"
+                  src="https://p3-passport.byteimg.com/img/user-avatar/8833cebec90863a00e6600f9626a7b97~100x100.awebp"
+                  alt=""
             /></a>
           </li>
         </ul>
@@ -110,20 +111,18 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
+  async fetch () {
+    let data = await axios.get('http://localhost:1337/api/tab-ones')
+    console.log(data.data.data)
+    let TabOne_info=data.data.data
+    this.$store.commit('updateTabOne',TabOne_info)
+
+  },
   data() {
     return {
-      tab1_categories: [
-        "首页",
-        "沸点",
-        "课程",
-        "直播",
-        "活动",
-        "竞赛",
-        "商城",
-        "APP",
-        "插件",
-      ],
+      tab1_categories: this.$store.state.tab1_categories,
       isActive: 0,
     };
   },
@@ -132,7 +131,7 @@ export default {
       this.isActive = index;
       this.$router.push(path);
     },
-  },
+  }
 };
 </script>
 <style scoped>
@@ -164,7 +163,8 @@ a {
 .header {
   width: 1440px;
   margin: 0 auto;
-  height: 100%;
+  /*height: 100%;*/
+  height: 62px;
   display: flex;
   align-items: center;
 }
@@ -176,12 +176,14 @@ a {
   height: 100%;
   width: 1297px;
   display: flex;
-  justify-content: space-between;
 }
 .nav_list li :hover {
   border-bottom: 2px solid rgb(30, 143, 255);
   color: #696d70;
 }
+
+
+
 .logo {
   width: 107px;
   height: 22px;
@@ -199,6 +201,7 @@ a {
 }
 .nav_list {
   display: flex;
+  width: 550px;
 }
 .nav_search {
   position: relative;
@@ -288,4 +291,5 @@ a{
 .active{
   color: rgb(17,113,238);
 }
+
 </style>

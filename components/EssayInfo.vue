@@ -28,6 +28,10 @@
                         <a href="">{{}}</a>
                     </div>
                 </div>
+              <h1>我是文章具体内容</h1>
+              {{article.attributes.author}}
+              {{article.attributes.public_time}}
+              {{article.attributes.content}}
                 <div class="column-container"></div>
             </div>
             <div class="correlation"></div>
@@ -48,8 +52,24 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'EssayInfo'
+  name: 'EssayInfo',
+  props:['id'],
+  async fetch(){
+    let {data:{data:article}}=await axios.get('http://localhost:1337/api/essays/'+this.id)
+    this.$store.commit('updateArticle',article)
+  },
+  data(){
+    return{
+      article:this.$store.state.content
+    }
+  },
+  created () {
+    this.article=this.$store.state.content
+  }
+
 }
 </script>
 
@@ -63,13 +83,13 @@ export default {
             /* min-height: 1000px; */
         }
 
-        
+
         .recommend {
             width: 100%;
             padding: 32.04px;
             background-color: #fff;
         }
-        
+
         .classification a {
             color: #000;
             background-color: #f2f3f5;
@@ -83,7 +103,7 @@ export default {
             padding: 32.04px;
             background-color: #fff;
         }
-        
+
         .comment-input input {
             width: 700px;
             height: 64px;
@@ -91,5 +111,5 @@ export default {
             background-color: #f2f3f5;
             border: 1px solid #f2f3f5;
         }
-        
+
 </style>

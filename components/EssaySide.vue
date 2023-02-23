@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="wechat">
-                    <a href=""><img src="../static/default.640d9a7.png" alt=""></a>
+                    <a href=""><img src="../../juejin/static/default.640d9a7.png" alt=""></a>
                 </div>
                 <div class="side_raleted">
                     <nav>
@@ -90,7 +90,7 @@ export default {
             background-color: #fff;
         }
 
-        
+
 
         .operate-btn .follow-btn {
             width: 122px;
