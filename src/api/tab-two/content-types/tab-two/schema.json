@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tab_twos",
+  "info": {
+    "singularName": "tab-two",
+    "pluralName": "tab-twos",
+    "displayName": "TabTwo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CNname": {
+      "type": "string"
+    },
+    "ENname": {
+      "type": "string"
+    }
+  }
+}
